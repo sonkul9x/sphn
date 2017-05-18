@@ -7,7 +7,8 @@
             'taxonomy' => 'post_format',
             'field' => 'slug',
             'terms' => array( 
-                   'post-format-video'
+                   'post-format-video',
+                   'post-format-image'
                 
             ),
             'operator' => 'NOT IN'

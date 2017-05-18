@@ -15,7 +15,12 @@
                             ');
                             }
                             ?>
-                        <div class="ct-content">   
+                        <div class="ct-content">  
+                         <?php $url = get_field('link_video');
+                         if(isset($url) && !empty($url)){
+                            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $matches); ?>
+                        <iframe width="100%" height="425" src="https://www.youtube.com/embed/<?php  if (!empty($matches)) { echo $matches[1];} ?>" frameborder="0" allowfullscreen></iframe>
+                        <?php } ?>
 					         <?php the_content(); ?>	
                         </div>
                         <div class="row sk_socials text-left">					
@@ -45,7 +50,15 @@
                         <ul>
                                 <?php  while ( have_posts() ) : the_post(); ?>
                             <li class="col-lg-2">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                                 <?php $url = get_field('link_video');
+                                 if(isset($url) && !empty($url)){
+                            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $matches); ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="https://i1.ytimg.com/vi/<?php  if (!empty($matches)) {
+                        echo $matches[1];} ?>/default.jpg" alt="<?php the_title(); ?>"></a>
+                                <?php }else{ ?>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                                    <?php 
+                                    } ?>
                                 <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" ><?php the_title(); ?></a></h5>
                             </li>
                              <?php             

@@ -21,9 +21,8 @@ if (function_exists('add_theme_support'))
     add_theme_support('post-thumbnails');
     add_image_size('img-sm', 380 , 225 , true); // Large Thumbnail
     add_image_size('img-sml', 280 , 210 , true); // Large Thumbnail
-    add_image_size('thumbnail', 113 , 54 , true); // Medium Thumbnail
-     
-    add_image_size('large', 299 , 135 , 113);
+    add_image_size('thumbnail', 190 , 176 , true); // Medium Thumbnail
+
     //Add Support for Custom Backgrounds - Uncomment below if you're going to use
     add_theme_support('custom-background', array(
     'default-color' => 'dcddde',
@@ -45,7 +44,7 @@ if (function_exists('add_theme_support'))
 
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
-    add_theme_support( 'post-formats', array( 'video' ) );
+    add_theme_support( 'post-formats', array( 'video','image' ) );
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
 }
@@ -354,9 +353,9 @@ function getPostViews($postID){
     if($count==''){
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0 View";
+        return "0 Lượt xem";
     }
-    return $count.' Views';
+    return $count.' Lượt xem';
 }
  
 // function to count views.

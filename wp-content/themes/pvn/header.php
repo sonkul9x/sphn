@@ -31,7 +31,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><?php bloginfo('name'); ?></a>
+                            <a class="navbar-brand" href="<?php bloginfo('home'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
                         </div>
                           <?php /* Primary navigation */
                                  wp_nav_menu( array(

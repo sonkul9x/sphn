@@ -66,15 +66,12 @@
 <div class="col-lg-4 diadiem-box">
          <h2><span>Địa điểm đi Phượt</span></h2>
          <ul class="list-group">
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="#">Cô Tô - Địa điểm du lịch bạn nên tới</a></li>
+          <?php  query_posts( array( 'post_type' => 'post','posts_per_page' => 9,'post_status'=> 'publish','orderby' => 'date','order' => 'rand','cat' => 7)); ?>
+            <?php if ( have_posts() ) : ?>
+                 <?php  while ( have_posts() ) : the_post(); ?>
+             <li class="list-group-item"><span class="glyphicon glyphicon-send"></span><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                  <?php  endwhile; // end while ?>     
+            <?php  endif; wp_reset_query(); ?>               
           
          </ul>
     </div>
